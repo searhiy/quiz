@@ -1,0 +1,25 @@
+server:
+    port: 8080
+    context-path: /api
+
+spring:
+    application:
+        name: ${PID}
+    output:
+      ansi:
+        enabled: always
+
+#my:
+#  prop: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${PID} %clr(%-8level) --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
+#
+#logging:
+#  file: "logs/dev_app.log"
+#  pattern:
+#    console: ${my.prop}
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+#  level:
+#    root: DEBUG
+#    org.springframework: INFO
+#    org.hibernate: INFO
+#    org.apache.tomcat: INFO
+#    org.apache.catalina: INFO
