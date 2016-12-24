@@ -8,14 +8,47 @@ spring:
     output:
       ansi:
         enabled: always
+    profiles:
+      active: dev
 
-#my:
-#  prop: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${PID} %clr(%-8level) --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
-#
+management:
+  port: 9001
+#  security:
+#    enabled: false
+#    roles: SUPERUSER
+  address: 127.0.0.1
+  context-path: /manage
+
+endpoints:
+  jmx:
+    domain: quiz
+    unique-names: true
+#    enabled: false
+#  jolokia:
+#    enabled: false
+
+# just ignore jolokia...
+jolokia:
+  config:
+    debug: true
+
+#  ssl:
+#    enable: true
+#    key-store: classpath:management.jks
+#    key-password: secret
+security:
+  user:
+    name: admin
+    password: admin
+    role: SUPERUSER
+
+
+#endpoints.hypermedia.enabled = true
+
 #logging:
 #  file: "logs/dev_app.log"
 #  pattern:
-#    console: ${my.prop}
+#    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${PID} %clr(%-8level) --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
 #    file: "%d %-5level [%thread] %logger : %msg%n"
 #  level:
 #    root: DEBUG
