@@ -1,8 +1,9 @@
 package org.truetraining.question.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,8 +11,12 @@ import java.util.Set;
  * @since 1.0.0
  */
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Question {
+@Table(name = "QUESTION")
+public class Question implements Comparable<Question>, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +24,11 @@ public class Question {
 
     private String question;
 
-    @ElementCollection
-    @CollectionTable(name="answers", joinColumns=@JoinColumn(name="question_id"))
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Answer> answers;
+
+    @Override
+    public int compareTo(Question question) {
+        return this.question.compareTo(question.getQuestion());
+    }
 }

@@ -10,6 +10,18 @@ spring:
         enabled: always
     profiles:
       active: dev
+    h2:
+      console:
+        enabled: true
+        # by default - <host>:<port>/h2-console
+    datasource:
+      url: "jdbc:h2:file:~/testdb"
+      username: sa
+      password: sa
+      driver-class-name: org.h2.Driver
+    jpa:
+      hibernate:
+        ddl-auto: create-drop
 
 management:
   port: 9001
@@ -48,7 +60,8 @@ security:
 #logging:
 #  file: "logs/dev_app.log"
 #  pattern:
-#    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${PID} %clr(%-8level) --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
+##    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%-8level) --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
+#    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%-8level) ${PID} --- [%-21thread] %clr(%-80.80logger{80}){cyan} : %m%n"
 #    file: "%d %-5level [%thread] %logger : %msg%n"
 #  level:
 #    root: DEBUG
