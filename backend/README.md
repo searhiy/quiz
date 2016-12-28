@@ -19,3 +19,6 @@ http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jmx.ht
 
 Cache
 https://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html#cache-annotations-cacheable-key
+
+
+http://winterbe.com/posts/2009/10/01/how-to-log-hibernate-cache-this/

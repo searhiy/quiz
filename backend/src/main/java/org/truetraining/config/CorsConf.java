@@ -1,7 +1,11 @@
 package org.truetraining.config;
 
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
+import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -26,5 +30,17 @@ public class CorsConf {
                         .allowCredentials(true);
             }
         };
+    }
+
+    @Bean
+    public CacheManager getEhCacheManager(){
+        return  new EhCacheCacheManager(getEhCacheFactory().getObject());
+    }
+    @Bean
+    public EhCacheManagerFactoryBean getEhCacheFactory(){
+        EhCacheManagerFactoryBean factoryBean = new EhCacheManagerFactoryBean();
+        factoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
+        factoryBean.setShared(true);
+        return factoryBean;
     }
 }

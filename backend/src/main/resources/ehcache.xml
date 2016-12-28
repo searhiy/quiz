@@ -5,10 +5,7 @@
          monitoring="autodetect"
          dynamicConfig="true">
     <!-- By default, Ehcache stored the cached files in temp folder. -->
-    <!-- <diskStore path="java.io.tmpdir" /> -->
-
-    <!-- Ask Ehcache to store cache in this path -->
-    <!--<diskStore path="c:\\cache"/>-->
+     <diskStore path="./cache" />
 
     <!-- Sample cache named cache1
     This cache contains a maximum in memory of 10000 elements, and will expire
@@ -19,14 +16,16 @@
     disk cache, which in this configuration will go to wherever java.io.tmp is
     defined on your system. On a standard Linux system this will be /tmp" -->
     <cache name="questions_cache"
-           maxEntriesLocalHeap="10000"
-           maxEntriesLocalDisk="1000"
-           eternal="false"
+           maxEntriesLocalHeap="10"
+           maxEntriesLocalDisk="10"
            diskSpoolBufferSizeMB="20"
-           timeToIdleSeconds="300" timeToLiveSeconds="600"
+           timeToIdleSeconds="30"
+           timeToLiveSeconds="60"
            memoryStoreEvictionPolicy="LFU"
            transactionalMode="off">
         <persistence strategy="localTempSwap"/>
+        <!--<persistence strategy="localRestartable"/>--> <!-- For enterprise only -->
+        <!--<persistence strategy="distributed"/>-->
     </cache>
 
     <!--<defaultCache-->

@@ -16,8 +16,9 @@ public interface QuestionRepo extends PagingAndSortingRepository<Question, Long>
 
     // http://stackoverflow.com/questions/27387856/how-to-mix-spring-data-repositories-and-spring-rest-controllers
     // https://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html#cache-annotations-cacheable-key
-    @Cacheable(value = "questions_cache", key = "#question")
+//    @Cacheable(value = "questions_cache", key = "#question")
 //    @Cacheable(value = "questions_cache", key = "#question", keyGenerator = )
-    List<Question> findAllByQuestion(String question);
+    @Cacheable(value = "questions_cache")
+    List<Question> findByQuestionLike(String question);
 
 }
