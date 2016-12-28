@@ -36,7 +36,7 @@ public class QuestionsGenerator {
                                         .limit(10).sorted().collect(Collectors.toSet()))
                         .build()
         );
-        randomQuestions.limit(10_000).sorted().forEach(questions::add);
+        randomQuestions.limit(1_000).sorted().forEach(questions::add);
 
         questionRepo.save(questions);
     }

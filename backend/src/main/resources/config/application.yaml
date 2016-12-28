@@ -22,6 +22,10 @@ spring:
     jpa:
       hibernate:
         ddl-auto: create-drop
+    cache:
+      type: ehcache
+      ehcache:
+        config: classpath:ehcache.xml
 
 management:
   port: 9001
@@ -35,6 +39,7 @@ endpoints:
   jmx:
     domain: quiz
     unique-names: true
+#    static-names:
 #    enabled: false
 #  jolokia:
 #    enabled: false

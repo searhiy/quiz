@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,6 +17,7 @@ import java.util.Arrays;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableGlobalMethodSecurity
+@EnableCaching
 public class Launcher {
 
     public static void main(String[] args) throws UnknownHostException {

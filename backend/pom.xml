@@ -137,9 +137,20 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.jolokia</groupId>-->
+			<!--<artifactId>jolokia-core</artifactId>-->
+		<!--</dependency>-->
+
+
+		<!-- Caching -->
 		<dependency>
-			<groupId>org.jolokia</groupId>
-			<artifactId>jolokia-core</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
 		</dependency>
 
 		<!-- Client: https://jolokia.org/tutorial.html -->
