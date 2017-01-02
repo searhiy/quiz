@@ -1,6 +1,5 @@
 package org.truetraining.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.truetraining.question.domain.Answer;
 import org.truetraining.question.domain.Question;
@@ -20,8 +19,11 @@ import java.util.stream.Stream;
 @Component
 public class QuestionsGenerator {
 
-    @Autowired
     private QuestionRepo questionRepo;
+
+    public QuestionsGenerator(QuestionRepo questionRepo) {
+        this.questionRepo = questionRepo;
+    }
 
     @PostConstruct
     public void generateQuestions() {

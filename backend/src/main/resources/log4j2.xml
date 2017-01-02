@@ -16,9 +16,8 @@
         <logger name="org.hibernate.cache" level="DEBUG"/>
         <logger name="org.apache.tomcat" level="INFO"/>
         <logger name="org.apache.catalina" level="INFO"/>
-        <logger name="net.sf.ehcache" level="ALL"/>
 
-        <Root level="ALL">
+        <Root level="DEBUG">
             <AppenderRef ref="Console" />
         </Root>
     </Loggers>

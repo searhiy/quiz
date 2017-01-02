@@ -21,4 +21,7 @@ public interface QuestionRepo extends PagingAndSortingRepository<Question, Long>
     @Cacheable(value = "questions_cache")
     List<Question> findByQuestionLike(String question);
 
+
+
+
 }

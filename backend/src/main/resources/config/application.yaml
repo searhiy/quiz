@@ -26,6 +26,9 @@ spring:
       type: ehcache
       ehcache:
         config: classpath:ehcache.xml
+    data:
+      rest:
+        default-page-size: 5
 
 management:
   port: 9001
